@@ -16,7 +16,7 @@ print("On what side do you have your modem, [ right, left, down, up, front, back
 local input = io.read()
 
 if has_value(tab_validInput, input) then
-    local args_scanner = fs.open("GPS/gps.txt", "w")
+    local args_scanner = fs.open("myGps/gps.txt", "w")
     args_scanner.writeLine(input);
     args_scanner.close();
     print("Done!")
