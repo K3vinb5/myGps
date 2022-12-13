@@ -87,8 +87,6 @@ function locate()
     modem.transmit(ComputerIds.id2, os.getComputerID(), "Proceed")
     modem.transmit(ComputerIds.id3, os.getComputerID(), "Proceed")
 
-    print("Transmited to computers")
-
     for i=1,3,1 do
 
         repeat
