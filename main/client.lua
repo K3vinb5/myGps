@@ -37,13 +37,27 @@ local function getModemSide()
     return side
 end
 
-local function insertId(id, distance, table)
+local function insertIdIntoDistance(id, distance)
     if(id == ComputerIds.id1)  then
-        table.server1 = distance
+        DistanceToServers.server1 = distance
     elseif (id == ComputerIds.id2) then
-        table.server2 = distance
+        DistanceToServers.server2 = distance
     elseif (id == ComputerIds.id3) then
-        table.server3 = distance
+        DistanceToServers.server3 = distance
+    end
+end
+
+
+local function insertIdIntoCoordinates(id, coordinates)
+    if(id == ComputerIds.id1)  then
+        CoordinatesOfServers.server1x = coordinates[1]
+        CoordinatesOfServers.server1y = coordinates[2]
+    elseif (id == ComputerIds.id2) then
+        CoordinatesOfServers.server2x = coordinates[1]
+        CoordinatesOfServers.server2y = coordinates[2]
+    elseif (id == ComputerIds.id3) then
+        CoordinatesOfServers.server3x = coordinates[1]
+        CoordinatesOfServers.server3y = coordinates[2]
     end
 end
 
@@ -69,13 +83,13 @@ function locate()
 
     for i=1,3,1 do
         local senderId, message, distance, protocol = rednet.receive()
-        insertId(senderId, distance, DistanceToServers)
-        insertId(senderId, message, CoordinatesOfServers)
+        insertIdIntoDistance(senderId, distance )
+        insertIdIntoCoordinates(senderId, message)
     end
 
     rednet.close(getModemSide())
 
-    local x, y = trackPhone(CoordinatesOfServers.server1[1], CoordinatesOfServers.server1[2], DistanceToServers.server1, CoordinatesOfServers.server2[1], CoordinatesOfServers.server2[2], DistanceToServers.server2, CoordinatesOfServers.server3[1], CoordinatesOfServers.server3[2], DistanceToServers.server3 )
+    local x, y = trackPhone(CoordinatesOfServers.server1x, CoordinatesOfServers.server1y, DistanceToServers.server1, CoordinatesOfServers.server2x, CoordinatesOfServers.server2y, DistanceToServers.server2, CoordinatesOfServers.server3x, CoordinatesOfServers.server3y, DistanceToServers.server3 )
     return x,y
 end
 
