@@ -8,3 +8,4 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/client
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/server.lua")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/setup.lua")
 shell.run("cd ..")
+shell.run("cd ..")
