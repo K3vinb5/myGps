@@ -58,13 +58,14 @@ if (success) then
         end
         args_scanner.close()
     elseif (input == 1) then
-        print("What are your coordinates? ex:[x, y, z]")
+        print("What are your coordinates? ex:[x, y]")
         local coordinatesString = io.read()
-        local x, y, z = split(coordinatesString, ", ")
+        local coordinatesTable = split(coordinatesString, ", ")
+        local x = coordinatesTable[1]
+        local y = coordinatesTable[2]
         local args_scanner = fs.open("myGps/coordinates.txt", "w")
         args_scanner.writeLine(x)
         args_scanner.writeLine(y)
-        args_scanner.writeLine(z)
         args_scanner.close()
         print("Done!")
     end

@@ -1,5 +1,4 @@
-MyComputerId = os.getComputerID()
-
+ClientId = -1
 local function file_exists(name)
     local f = io.open(name, "r")
     if f ~= nil then
@@ -31,7 +30,7 @@ local function sendMessage()
     
     rednet.open(getModemSide())
 
-    rednet.send(MyComputerId, getCoordinates(), os.getComputerLabel())
+    rednet.send(ClientId, getCoordinates(), os.getComputerLabel())
 
     rednet.close(getModemSide())
 end
@@ -41,12 +40,9 @@ local function receiveMessage()
     rednet.open(getModemSide())
 
     local senderId, message, protocol = rednet.receive()
-
+    ClientId = senderId
     rednet.close(getModemSide())
-    
-    if (message == "Proceed") then
-        sendMessage()    
-    end
+    sendMessage()
     
     return "Request by: " .. senderId
 end
