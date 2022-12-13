@@ -51,7 +51,7 @@ if (success) then
     local input = tonumber(io.read())
     if (input == 0) then
         local args_scanner = fs.open("myGps/serverIds.txt", "w")
-        for i=1,4,1 do
+        for i=1,3,1 do
             print("Insert server" .. i .. "'s ID")
             local string = io.read()
             args_scanner.writeLine(string)

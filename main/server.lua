@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field, undefined-global
 ClientId = -1
 local function file_exists(name)
     local f = io.open(name, "r")
@@ -27,24 +28,32 @@ local function getCoordinates()
 end
 
 local function sendMessage()
-    
-    rednet.open(getModemSide())
+    local modem = peripheral.wrap(getModemSide())
+    modem.open(os.getComputerID())
 
-    rednet.send(ClientId, getCoordinates(), os.getComputerLabel())
+    local x, y = getCoordinates()
 
-    rednet.close(getModemSide())
+    modem.transmit(ClientId, os.getComputerID(), {x,y})
+
+    modem.close(os.getComputerID())
 end
 
 local function receiveMessage()
 
-    rednet.open(getModemSide())
+    local modem = peripheral.wrap(getModemSide())
+    modem.open(os.getComputerID())
 
-    local senderId, message, protocol = rednet.receive()
-    ClientId = senderId
-    rednet.close(getModemSide())
+    repeat
+        event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
+    until channel == os.getComputerID()
+
+    print("Message received")
+
+    ClientId = replyChannel
+    modem.close(os.getComputerID())
     sendMessage()
     
-    return "Request by: " .. senderId
+    return "Request by: " .. ClientId
 end
 
 -- Main
@@ -53,4 +62,5 @@ while (true) do
     print("My id is: " .. os.getComputerID() .. "\n\nWaiting for requests...")
     print("Last request: " .. lastRequest)
     lastRequest = receiveMessage()
+    shell.run("clear")
 end
