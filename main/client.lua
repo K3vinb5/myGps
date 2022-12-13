@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-field
+---@diagnostic disable: undefined-field, undefined-global
 
 ComputerIds = {}
 DistanceToServers = {server1=0, server2=0, server3=0}
