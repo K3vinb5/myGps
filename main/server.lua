@@ -58,8 +58,9 @@ end
 
 -- Main
 local lastRequest = ""
+X, Z = getCoordinates()
 while (true) do
-    print("My id is: " .. os.getComputerID() .. "\n\nWaiting for requests...")
+    print("My id is: " .. os.getComputerID() .. "\nMy coordinates are: " .. X .. " " .. Z .. "\n\nWaiting for requests...")
     print("Last request computer's id: " .. lastRequest)
     lastRequest = receiveMessage()
     shell.run("clear")
