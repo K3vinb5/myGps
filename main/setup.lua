@@ -59,7 +59,7 @@ if (success) then
         end
         args_scanner.close()
     elseif (input == 1) then
-        print("What are your coordinates? ex:[x, y]")
+        print("What are your coordinates? ex:[x, z]")
         local coordinatesString = io.read()
         local coordinatesTable = split(coordinatesString, ", ")
         local x = coordinatesTable[1]
@@ -69,6 +69,7 @@ if (success) then
         args_scanner.writeLine(y)
         args_scanner.close()
         shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/startups/startup.lua") --get the startup file
+        os.reboot()
         print("Done!")
     end
 end
