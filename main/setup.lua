@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 local function has_value (tab, val)
     for index, value in ipairs(tab) do
         if value == val then
@@ -43,11 +44,11 @@ if has_value(tab_validInput, input) then
      
 else
     print("Invalid input")
-    os.exit()
+    os.reboot()
 end
 
 if (success) then
-    print("Do you wish to run this computer to run as a client or server\nclient -> 0\nserver -> 1")
+    print("Do you wish to run this computer to run as a client or server\n0 -> client\n1 -> server")
     local input = tonumber(io.read())
     if (input == 0) then
         local args_scanner = fs.open("myGps/serverIds.txt", "w")
