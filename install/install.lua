@@ -10,3 +10,4 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/setup.
 shell.run("cd ..")
 shell.run("cd ..")
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGps.lua")
+shell.run("setmyGps")
