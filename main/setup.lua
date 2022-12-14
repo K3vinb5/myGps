@@ -44,7 +44,7 @@ if has_value(tab_validInput, input) then
      
 else
     print("Invalid input")
-    os.reboot()
+    error()
 end
 
 if (success) then
