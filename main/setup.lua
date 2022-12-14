@@ -68,7 +68,7 @@ if (success) then
         args_scanner.writeLine(x)
         args_scanner.writeLine(y)
         args_scanner.close()
-        shell.run("wget ") --get the startup file
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/startups/startup.lua") --get the startup file
         print("Done!")
     end
 end
