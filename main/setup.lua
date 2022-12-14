@@ -68,6 +68,7 @@ if (success) then
         args_scanner.writeLine(x)
         args_scanner.writeLine(y)
         args_scanner.close()
+        shell.run("wget ") --get the startup file
         print("Done!")
     end
 end

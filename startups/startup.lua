@@ -1,0 +1,1 @@
+shell.run("myGps/main/server.lua")
