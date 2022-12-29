@@ -58,6 +58,7 @@ if (success) then
             args_scanner.writeLine(string)
         end
         args_scanner.close()
+        print("Done!")
     elseif (input == 1) then
         print("What are your coordinates? ex:[x, z]")
         local coordinatesString = io.read()
