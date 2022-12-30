@@ -56,6 +56,17 @@ local function runAsServer()
     print("Done!")
 end
 
+local function askUserWhatToRun()
+    print(args[1])
+    print("Do you wish to run this computer to run as a client or server\n0 -> client\n1 -> server")
+    local input = tonumber(io.read())
+    if (input == 0) then
+        runAsClient()
+    elseif (input == 1) then
+        runAsServer()
+    end
+end
+
 shell.run("clear")
 print("\nMade by Kevinb5")
 
@@ -77,6 +88,7 @@ local function askuser()
         askuser()
     end
 end
+
 --main 
 
 askuser()
@@ -88,14 +100,9 @@ if args[1] ~= nil then
     elseif args[1] == "1" then
         runAsServer()
         success = false
+    else
+        askUserWhatToRun()
     end
 else
-    print(args[1])
-    print("Do you wish to run this computer to run as a client or server\n0 -> client\n1 -> server")
-    local input = tonumber(io.read())
-    if (input == 0) then
-        runAsClient()
-    elseif (input == 1) then
-        runAsServer()
-    end
+    askUserWhatToRun()
 end
