@@ -58,23 +58,28 @@ end
 
 shell.run("clear")
 print("\nMade by Kevinb5")
-local tab_validInput = {"right", "left", "down", "up", "front", "back"}
 
-print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
-local input = io.read()
-local success = false
-if has_value(tab_validInput, input) then
-    local args_scanner = fs.open("myGps/orientation.txt", "w")
-    args_scanner.writeLine(input);
-    args_scanner.close();
-    print("\nDone!")
-    shell.run("clear")
-    success = true
-     
-else
-    print("Invalid input")
-    error()
+local function askuser()
+
+    local tab_validInput = {"right", "left", "down", "up", "front", "back"}
+
+    print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
+    local input = io.read()
+    if has_value(tab_validInput, input) then
+        local args_scanner = fs.open("myGps/orientation.txt", "w")
+        args_scanner.writeLine(input);
+        args_scanner.close();
+        print("\nDone!")
+        shell.run("clear")
+        
+    else
+        print("Invalid input")
+        askuser()
+    end
 end
+--main 
+
+askuser()
 
 if args[1] ~= nil then
     if args[1] == "0" then
@@ -84,9 +89,7 @@ if args[1] ~= nil then
         runAsServer()
         success = false
     end
-end
-
-if (success) then
+else
     print("Do you wish to run this computer to run as a client or server\n0 -> client\n1 -> server")
     local input = tonumber(io.read())
     if (input == 0) then
