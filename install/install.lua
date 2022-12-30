@@ -11,10 +11,10 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/setup.
 shell.run("cd ..")
 shell.run("cd ..")
 if args[1] ~= nil then
-    if args[1] == 0 then
+    if args[1] == "0" then
         shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGpsClient.lua")
         shell.run("setmyGpsClient")
-    elseif args[1] == 1 then
+    elseif args[1] == "1" then
         shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGpsServer.lua")
         shell.run("setmyGpsServer")
     else

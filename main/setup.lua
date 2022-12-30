@@ -77,10 +77,10 @@ else
 end
 
 if args[1] ~= nil then
-    if args[1] == 0 then
+    if args[1] == "0" then
         runAsClient()
         success = false
-    elseif args[1] == 1 then
+    elseif args[1] == "1" then
         runAsServer()
         success = false
     end
