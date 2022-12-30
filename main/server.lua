@@ -1,5 +1,7 @@
 ---@diagnostic disable: undefined-field, undefined-global
+
 ClientId = -1 -- iniciates the variable at -1
+
 local function file_exists(name)
     local f = io.open(name, "r")
     if f ~= nil then
