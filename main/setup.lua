@@ -90,6 +90,7 @@ if args[1] ~= nil then
         success = false
     end
 else
+    print(args[1])
     print("Do you wish to run this computer to run as a client or server\n0 -> client\n1 -> server")
     local input = tonumber(io.read())
     if (input == 0) then
