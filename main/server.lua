@@ -53,7 +53,7 @@ local function receiveMessage()
     modem.close(os.getComputerID())
     sendMessage()
     
-    return "Request by: " .. ClientId
+    return tostring(ClientId)
 end
 
 -- Main
