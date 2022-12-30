@@ -61,7 +61,7 @@ print("\nMade by Kevinb5")
 
 local function askuser()
 
-    local tab_validInput = {"right", "left", "down", "up", "front", "back"}
+    local tab_validInput = {"right", "left", "bottom", "top", "front", "back"}
 
     print("On what side do you have your modem, ex:[right, left, down, up, front, back]\n")
     local input = io.read()
