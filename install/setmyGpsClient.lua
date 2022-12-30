@@ -1,1 +1,1 @@
-shell.run("myGps/main/setup.lua")
+shell.run("myGps/main/setup.lua 0")
