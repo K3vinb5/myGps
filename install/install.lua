@@ -1,3 +1,4 @@
+local args = {...}
 print("Creating myGps folder")
 fs.makeDir("myGps")
 shell.run("cd myGps")
@@ -9,5 +10,18 @@ shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/server
 shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/main/setup.lua")
 shell.run("cd ..")
 shell.run("cd ..")
-shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGps.lua")
-shell.run("setmyGps")
+if args[1] ~= nil then
+    if args[1] == 0 then
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGpsClient.lua")
+        shell.run("setmyGpsClient")
+    elseif args[1] == 1 then
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGpsServer.lua")
+        shell.run("setmyGpsServer")
+    else
+        shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGps.lua")
+        shell.run("setmyGps")
+    end
+else
+    shell.run("wget https://raw.githubusercontent.com/K3vinb5/myGps/main/install/setmyGps.lua")
+    shell.run("setmyGps")
+end
